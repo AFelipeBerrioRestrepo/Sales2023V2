@@ -2,19 +2,20 @@
 
 namespace Sales.Shared.Entities
 {
-    public class Country
+    public class State
     {
         public int Id { get; set; }
 
-        [Display(Name = "País")]
+        [Display(Name = "Estado/Departamento")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         [MaxLength(100, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
-        
+
         public string Name { get; set; } = null!;
 
-        public ICollection<State>? States { get; set; }
+        public Country? Country { get; set; }
 
-        public int StatesNumber => States == null ? 0 : States.Count;
+        public ICollection<City>? Cities { get; set; }
+
+        public int CitiesNumber => Cities == null ? 0 : Cities.Count;
     }
-
 }
