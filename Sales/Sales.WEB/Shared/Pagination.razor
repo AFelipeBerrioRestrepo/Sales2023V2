@@ -1,5 +1,5 @@
 ﻿<nav>
-    <ul class="pagination">
+    <ul class="pagination justify-content-center" >
 
         @foreach (var link in Links)
         {
@@ -14,8 +14,9 @@
 @code {
     [Parameter] public int CurrentPage { get; set; } = 1;
     [Parameter] public int TotalPages { get; set; }
-    [Parameter] public int Radio { get; set; } = 5;
+    [Parameter] public int Radio { get; set; } = 9;
     [Parameter] public EventCallback<int> SelectedPage { get; set; }
+
     List<PageModel> Links = new();
 
     protected override void OnParametersSet()
@@ -24,40 +25,38 @@
 
         var previousLinkEnable = CurrentPage != 1;
         var previousLinkPage = CurrentPage - 1;
-        Links.Add(new PageModel
-            {
-                Text = "Anterior",
-                Page = previousLinkPage,
-                Enable = previousLinkEnable
-            });
+        Links.Add(new PageModel{Text = "Anterior",Page = previousLinkPage,Enable = previousLinkEnable});
 
         for (int i = 1; i <= TotalPages; i++)
         {
-            if (i >= CurrentPage - Radio && i <= CurrentPage + Radio)
+
+
+            if (i <=Radio && TotalPages > Radio && CurrentPage <= Radio)
             {
-                Links.Add(new PageModel
-                    {
-                        Page = i,
-                        Enable = CurrentPage == i,
-                        Text = $"{i}"
-                    });
+                Links.Add(new PageModel{Page = i,Enable = CurrentPage == i,Active = CurrentPage == Radio,Text = $"{i}"});
             }
+
+            if (i <= CurrentPage && CurrentPage > Radio && i > CurrentPage - Radio)
+            {
+                Links.Add(new PageModel{Page = i,Enable = CurrentPage == i,Text = $"{i}"});
+            }
+
+            if (TotalPages <= Radio)
+            {
+                Links.Add(new PageModel{Page = i,Enable = CurrentPage == i,Text = $"{i}"});
+            }
+
         }
 
         var linkNextEnable = CurrentPage != TotalPages;
-        var linkNextPage = CurrentPage + 1;
-        Links.Add(new PageModel
-            {
-                Text = "Siguiente",
-                Page = linkNextPage,
-                Enable = linkNextEnable
-            });
+        var linkNextPage = CurrentPage != TotalPages ? CurrentPage + 1 : CurrentPage;
+        Links.Add(new PageModel{Text = "Siguiente",Page = linkNextPage,Enable = linkNextEnable});
 
     }
 
     private async Task InternalSelectedPage(PageModel pageModel)
     {
-        if (pageModel.Page == CurrentPage || pageModel.Page == 0)
+        if (pageModel.Page == CurrentPage || pageModel.Page == 0 || pageModel.Page > TotalPages)
         {
             return;
         }
