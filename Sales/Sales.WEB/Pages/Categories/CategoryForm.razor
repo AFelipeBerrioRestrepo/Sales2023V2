@@ -4,6 +4,8 @@
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
+    <div class="row">
+    </div>
     <div class="mb-3">
         <label>Categoria:</label>
         <div>
@@ -11,6 +13,7 @@
             <ValidationMessage For="@(() => Category.Name)" />
         </div>
     </div>
+
     <button class="btn btn-primary" type="submit">Guardar Cambios</button>
     <button class="btn btn-success" @onclick="ReturnAction">Regresar</button>
 </EditForm>
