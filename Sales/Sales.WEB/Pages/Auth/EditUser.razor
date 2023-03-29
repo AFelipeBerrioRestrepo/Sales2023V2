@@ -17,8 +17,8 @@ else
             <div class="card-header">
                 <span>
                     <i class="oi oi-person" /> Editar Usuario
-                    <button type="button" @onclick="@(() => ShowModal())">Mostrar modal</button>
-                    <a class="btn btn-sm btn-secondary float-end" href="/changePassword"><i class="oi oi-key" /> Cambiar Contraseña</a>
+                    <a class="btn btn-sm btn-secondary float-end" @onclick="@(() => ShowModal())"><i class="oi oi-key" /> Cambiar Contraseña</a>
+                    <!-- <a class="btn btn-sm btn-secondary float-end" href="/changePassword"><i class="oi oi-key" /> Cambiar Contraseña</a> -->
                     <button class="btn btn-sm btn-primary float-end mx-2" type="submit"><i class="oi oi-check" /> Guardar Cambios</button>
                 </span>
             </div>
@@ -125,17 +125,17 @@ else
     private List<City>? cities;
     private string? imageUrl;
 
-    private bool showModal = false;
+    [CascadingParameter]
+    IModalService Modal { get; set; } = default!;
 
-    private void ShowModal()
+    private async Task ShowModal(int id = 0, bool isEdit = false)
     {
-        showModal = true;
+        IModalReference modalReference;
+        {
+            modalReference = Modal.Show<ChangePassword>();
+        }
     }
 
-    private void HideModal()
-    {
-        showModal = false;
-    }
 
     protected override async Task OnInitializedAsync()
     {
