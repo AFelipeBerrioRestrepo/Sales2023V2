@@ -4,16 +4,13 @@
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
-    <div class="row">
-    </div>
     <div class="mb-3">
-        <label>Categoria:</label>
+        <label>Categoría:</label>
         <div>
             <InputText class="form-control" @bind-Value="@Category.Name" />
             <ValidationMessage For="@(() => Category.Name)" />
         </div>
     </div>
-
     <button class="btn btn-primary" type="submit">Guardar Cambios</button>
     <button class="btn btn-success" @onclick="ReturnAction">Regresar</button>
 </EditForm>
@@ -33,7 +30,7 @@
     [EditorRequired]
     public EventCallback ReturnAction { get; set; }
 
-    public bool FormPostedSuccesfully { get; set; }
+    public bool FormPostedSuccessfully { get; set; }
 
     protected override void OnInitialized()
     {
@@ -42,16 +39,16 @@
 
     private async Task OnBeforeInternalNavigation(LocationChangingContext context)
     {
-        var formuWasModified = editContext.IsModified();
-        if (!formuWasModified || FormPostedSuccesfully)
+        var formWasMofied = editContext.IsModified();
+        if (!formWasMofied || FormPostedSuccessfully)
         {
             return;
         }
 
         var result = await sweetAlertService.FireAsync(new SweetAlertOptions
             {
-                Title = "Confirmacion",
-                Text = "¿Deseas abandonar la página y perder los cambios",
+                Title = "Confirmación",
+                Text = "¿Deseas abandonar la página y perder los cambios?",
                 Icon = SweetAlertIcon.Question,
                 ShowCancelButton = true,
                 CancelButtonText = "No",
@@ -63,7 +60,7 @@
         {
             return;
         }
+
         context.PreventNavigation();
     }
-
 }
