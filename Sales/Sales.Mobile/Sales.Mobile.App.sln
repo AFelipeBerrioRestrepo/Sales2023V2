@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales.Mobile", "Sales.Mobile.csproj", "{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales.Mobile", "Sales.Mobile.csproj", "{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0F73BBE-10DB-4A81-9E33-842F0E1D3400}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA1552C-B2BC-483F-9B2F-8D1376A246DF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
