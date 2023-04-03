@@ -26,6 +26,10 @@ namespace Sales.API.Data
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Sale> Sales { get; set; }
+
+        public DbSet<SaleDetail> SaleDetails { get; set; }
+
         public DbSet<TemporalSale> TemporalSales { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
