@@ -14,8 +14,9 @@ namespace Sales.Mobile
             var navPage = new NavigationPage(new MainPage());
             navPage.BarBackgroundColor = Colors.Chocolate;
             navPage.BarTextColor = Colors.White;
+            MainPage = navPage;
 
-            MainPage = new DemoAutoPropertyChangedView();
+            MainPage = new NavigationPage(new MainPage());
         }
     }
 }
